@@ -18,6 +18,10 @@ married(homer,marge).
 married(marge,homer).
 married(adam,mona).
 married(mona,adam).
+father(adam,haana).
+father(adam,homer).
+mother(mona,homer).
+mother(mona,haana).
 father(clancy,marge).
 father(clancy,peter).
 father(clancy,selma).
@@ -32,7 +36,8 @@ mother(marge,lisa).
 mother(marge,maggie).
 mother(selma,ling).
 %rules
-parent(X,Y) :- child(X,Y).
+parent(X,Y) :- father(X,Y).
+parent(X,Y) :- mother(X,Y).
 child(X,Y) :- parent(Y, X). 
 husband(X,Y) :- married(X,Y), male(X).
 wife(X,Y) :- married(X,Y), female(X).
